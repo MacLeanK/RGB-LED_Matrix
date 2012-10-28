@@ -1,0 +1,1 @@
+This project includes files for the control of the Adafruit 16x32 RGB LED Matrix display with a Pic18f45k20 programmed in PIC-C.
