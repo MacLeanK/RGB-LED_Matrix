@@ -28,8 +28,7 @@ int i;
 
 #pragma code
 
-void clear()
-{
+void clear() {
     LATDbits.LATD0 = 0;
     LATDbits.LATD1 = 0;
     LATDbits.LATD2 = 0;
@@ -48,10 +47,8 @@ void clear()
     LATCbits.LATC7 = 0;
 }
 
-void setRow(char INPUT)
-{
-    switch (INPUT)
-    {
+void setRow(char INPUT) {
+    switch (INPUT) {
         case 0:
             pinA = 0;
             pinB = 0;
@@ -95,8 +92,7 @@ void setRow(char INPUT)
     }
 }
 
-void White (short TOGGLE1, short TOGGLE2)
-{
+void White(short TOGGLE1, short TOGGLE2) {
     R1 = TOGGLE1;
     B1 = TOGGLE1;
     G1 = TOGGLE1;
@@ -106,10 +102,8 @@ void White (short TOGGLE1, short TOGGLE2)
     G2 = TOGGLE2;
 }
 
-void B8Colour(char TOGGLE1, char TOGGLE2)
-{
-    switch(TOGGLE1)
-    {
+void B8Colour(char TOGGLE1, char TOGGLE2) {
+    switch (TOGGLE1) {
         case 0:
             R1 = 0;
             G1 = 0;
@@ -151,8 +145,7 @@ void B8Colour(char TOGGLE1, char TOGGLE2)
             B1 = 1;
             break;
     }
-    switch(TOGGLE2)
-    {
+    switch (TOGGLE2) {
         case 0:
             R2 = 0;
             G2 = 0;
@@ -196,44 +189,30 @@ void B8Colour(char TOGGLE1, char TOGGLE2)
     }
 }
 
-void CLOCK ()
-{
+void CLOCK() {
     CLK = 1;
     CLK = 0;
 }
 
-void LATCH ()
-{
+void LATCH() {
     LAT = 1;
     LAT = 0;
 }
 
-void clearLEDs()
-{
+void clearLEDs() {
     R1 = 0;
     R2 = 0;
     G1 = 0;
     G2 = 0;
     B1 = 0;
     B2 = 0;
-    for(i = 0; i<32; i++)
-    {
-        CLOCK();
+    for (i = 32; i != 0; i--) {
+        CLK = 1;
+        CLK = 0;
     }
-    LATCH();
+    LAT = 1;
+    LAT = 0;
 }
-
-/*
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif*/
 
 #endif	/* MATRIXIMAGING_H */
 
